@@ -9,13 +9,13 @@ const DetailImage = ({ image, title }) => {
       // className={moreStyles.ad_banner}
       className={styles.banner}
       style={{
-        backgroundSize: "cover",
-        background: `linear-gradient(190deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${image})`
+        backgroundImage: `url(${image})`,
+        // background: `linear-gradient(190deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${image}) no-repeat`
       }}
     // style={{backgroundString}}
     >
       <div className={styles.ad_text}>
-        <h1>{title}</h1>
+        <h1 id={styles.detail_banner_text}>{title}</h1>
       </div>
     </div>
   );
