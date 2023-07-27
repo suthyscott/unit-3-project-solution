@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 
 const NewRecipeScreen = () => {
   const [ingredients, setIngredients] = useState([]);
-  const [name, setName] = useState("");
+  const [name, setName] = useState("")
   const [quantity, setQuantity] = useState("");
   const url = "https://recipes.devmountain.com";
   const navigate = useNavigate()
@@ -59,9 +59,12 @@ const NewRecipeScreen = () => {
     <section>
       <h1>Tell us about your Recipe!</h1>
       {/* Render the Formik component and pass in some props. initialValues tells Formik what values we're going to track, by specifying what all needs to be in our values object. onSubmit is the function we want to run when the form gets submitted.*/}
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik initialValues={initialValues} onSubmit={(values, {resetForm}) => {
+        onSubmit(values)
+        resetForm()
+      }}>
         {/* Inside the Formik component we render an arrow. Whatever is returned from inside the arrow function will be renderd on the page. The arrow function takes in and immediately desctructures three parameters: values is a dynamic object that has all the properties from our initial values object, and we'll be updating those properties as the user types in the input. handleChange updates those properties in the values objects based on the name of the input and value. handleSubmit triggers the onSubmit that we provided above.*/}
-        {({ values, handleChange, handleSubmit }) => {
+        {({ values, handleChange, handleSubmit}) => {
           console.log(values)
           return(
         
